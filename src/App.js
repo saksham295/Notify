@@ -8,33 +8,16 @@ const App = () => {
   const [notes, setNotes] = useState([
     {
       id: nanoid(),
-      text: "“Life is like riding a bicycle. To keep your balance you must keep moving.” \n —Albert Einstein",
+      text: "Doctor's Appointment on 25/08/2021",
       date: "20/08/2021",
-    },
-    {
-      id: nanoid(),
-      text: "“Be sure you put your feet in the right place, then stand firm.” \n ―Abraham Lincoln",
-      date: "15/04/2020",
-    },
-    {
-      id: nanoid(),
-      text: "“A year from now you will wish you had started today.” \n —Unknown",
-      date: "10/02/2019",
-    },
-    {
-      id: nanoid(),
-      text: "“Some people want it to happen, some wish it would happen, others make it happen.” \n —Michael Jordan",
-      date: "05/01/2018",
+      isAcknowledged: true,
     },
   ]);
-
   const [searchText, setSearchText] = useState("");
-
   const [darkMode, setDarkMode] = useState(false);
 
   useEffect(() => {
     const savedNotes = JSON.parse(localStorage.getItem("notes-data"));
-
     if (savedNotes) {
       setNotes(savedNotes);
     }
@@ -50,6 +33,7 @@ const App = () => {
       id: nanoid(),
       text: text,
       date: date.toLocaleDateString(),
+      isAcknowledged: false,
     };
     const newNotes = [...notes, newNote];
     setNotes(newNotes);

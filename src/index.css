@@ -77,6 +77,12 @@ input {
   justify-content: space-between;
 }
 
+.note-controls {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
 .new {
   background-color: rgb(103, 215, 204);
 }
